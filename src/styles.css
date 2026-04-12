@@ -1,1 +1,44 @@
-/* You can add global styles to this file, and also import other style files */
+/* IMPORTS */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+
+/* =================================
+   1. RESET
+================================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* =================================
+   1. RESET
+================================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* =================================
+   2. BASE
+================================= */
+
+body {
+  font-family: 'Outfit', sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+}
+
+/* =================================
+   3. VARIABLES GLOBALES
+================================= */
+
+:root {
+  --color-primary: #000000;
+  --color-secondary: #767272;
+  --color-border: #cccccc;
+  --color-accent: #3b82f6;
+}

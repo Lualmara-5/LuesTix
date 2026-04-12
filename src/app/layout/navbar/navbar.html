@@ -1,0 +1,32 @@
+<nav class="navbar">
+  <!-- IZQUIERDA -->
+  <div class="left">
+    <div class="logo">
+      <a routerLink="/">LUES<span>TIX</span></a>
+    </div>
+  </div>
+
+  <!-- CENTRO -->
+  <div class="center">
+    <ul class="links">
+      <li routerLink="/shop" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+        TIENDA
+      </li>
+
+      <li routerLink="/collections" routerLinkActive="active">COLECCIONES</li>
+
+      <li routerLink="/about" routerLinkActive="active">NOSOTROS</li>
+    </ul>
+  </div>
+
+  <!-- DERECHA -->
+  <div class="right">
+    <div class="search">
+      <input type="text" placeholder="Busca en la tienda..." />
+      <span class="icon"><i class="ri-search-ai-2-line"></i></span>
+    </div>
+
+    <span class="icon2"><i class="ri-heart-line"></i></span>
+    <span class="icon2"><i class="ri-shopping-cart-2-line"></i></span>
+  </div>
+</nav>
