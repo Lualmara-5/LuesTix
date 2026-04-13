@@ -134,6 +134,7 @@
 
 /* Burger */
 .burger {
+  display: none;
   font-size: 20px;
   cursor: pointer;
 }
@@ -150,7 +151,7 @@
 
 /* Menú mobile */
 .mobile-menu {
-  display: block;
+  display: none;
   width: 100%;
   overflow: hidden;
   max-height: 0;
@@ -179,6 +180,11 @@
   letter-spacing: 0.08em;
   color: var(--color-text-secondary);
   cursor: pointer;
+}
+
+.mobile-links li.active-mobile {
+  font-weight: 700;
+  color: var(--color-text-primary);
 }
 
 @media (max-width: 768px) {

@@ -41,8 +41,19 @@
 <!-- Menu Mobile -->
 <div class="mobile-menu" [class.open]="isMenuOpen">
   <ul class="mobile-links">
-    <li routerLink="/shop" (click)="closeMenu()">TIENDA</li>
-    <li routerLink="/collections" (click)="closeMenu()">COLECCIONES</li>
-    <li routerLink="/about" (click)="closeMenu()">NOSOTROS</li>
+    <li
+      routerLink="/shop"
+      routerLinkActive="active-mobile"
+      [routerLinkActiveOptions]="{ exact: true }"
+      (click)="closeMenu()"
+    >
+      TIENDA
+    </li>
+
+    <li routerLink="/collections" routerLinkActive="active-mobile" (click)="closeMenu()">
+      COLECCIONES
+    </li>
+
+    <li routerLink="/about" routerLinkActive="active-mobile" (click)="closeMenu()">NOSOTROS</li>
   </ul>
 </div>
