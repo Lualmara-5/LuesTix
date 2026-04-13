@@ -33,7 +33,24 @@ body {
 }
 
 /* =================================
-   3. VARIABLES GLOBALES
+   3. SCROLLBAR
+================================= */
+
+/* Chrome, Edge, Safari */ 
+/*::-webkit-scrollbar { 
+  display: none; 
+} */
+/* Firefox */ 
+html { 
+  scrollbar-width: none; 
+} 
+/* IE / Edge viejo */ 
+body { 
+  -ms-overflow-style: none; 
+} 
+
+/* =================================
+   4. VARIABLES GLOBALES
 ================================= */
 
 :root {
