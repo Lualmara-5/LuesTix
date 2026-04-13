@@ -23,21 +23,8 @@
   margin-bottom: 1.5rem;
 }
 
-.shop-header-left {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
 .shop-header h2 {
   font-weight: 400;
-}
-
-.header-line {
-  display: block;
-  width: 40px;
-  height: 2px;
-  background: var(--color-text-strong);
 }
 
 /* Select */
