@@ -1,1 +1,26 @@
-<p>shop works!</p>
+<section class="shop">
+  <!-- Filtros -->
+  <app-filters (filtersChanged)="onFiltersChanged($event)"></app-filters>
+
+  <!-- Header -->
+  <div class="shop-content">
+    <div class="shop-header">
+      <div class="shop-header-left">
+        <h2>TIENDA</h2>
+        <span class="header-line"></span>
+      </div>
+      <!-- Select-->
+      <select (change)="onSortChange($any($event.target))">
+        <option value="" disabled selected hidden>Ordenar por:</option>
+        <option value="">Relevancia</option>
+        <option value="asc">Precio: menor a mayor</option>
+        <option value="desc">Precio: mayor a menor</option>
+        <option value="popular">Más vendidos</option>
+      </select>
+    </div>
+
+    <div class="products-grid">
+      <!-- CARDS Proximamente... -->
+    </div>
+  </div>
+</section>

@@ -1,0 +1,57 @@
+<!-- Título desktop -->
+<h2 class="filters-title">Filtros</h2>
+
+<!-- Botón toggle (solo móvil) -->
+<button class="filters-toggle" (click)="filtersOpen = !filtersOpen">
+  Filtros
+  <i [class]="filtersOpen ? 'ri-arrow-down-s-line' : 'ri-arrow-right-s-line'"></i>
+</button>
+
+<!-- Panel -->
+<div class="filters-panel" [class.open]="filtersOpen">
+  <!-- Categoría -->
+  <div class="filter-group">
+    <div class="filter-group-header" (click)="toggleGroup('categoria')">
+      <h3 class="filter-group-title">Categoría</h3>
+      <i [class]="openGroups['categoria'] ? 'ri-arrow-down-s-line' : 'ri-arrow-right-s-line'"></i>
+    </div>
+    <div
+      class="filter-group-body"
+      [class.collapsed]="!openGroups['categoria']"
+      [style.max-height]="openGroups['categoria'] ? '200px' : '0'"
+    >
+      <label class="filter-option" *ngFor="let cat of categories">
+        <input
+          type="checkbox"
+          [checked]="isSelectedCategory(cat.value)"
+          (change)="toggleCategory(cat.value)"
+        />
+        {{ cat.label }}
+      </label>
+    </div>
+  </div>
+
+  <!-- Talla -->
+  <div class="filter-group">
+    <div class="filter-group-header" (click)="toggleGroup('talla')">
+      <h3 class="filter-group-title">Talla</h3>
+      <i [class]="openGroups['talla'] ? 'ri-arrow-down-s-line' : 'ri-arrow-right-s-line'"></i>
+    </div>
+    <div
+      class="filter-group-body"
+      [class.collapsed]="!openGroups['talla']"
+      [style.max-height]="openGroups['talla'] ? '200px' : '0'"
+    >
+      <div class="size-options">
+        <button
+          *ngFor="let size of sizes"
+          class="size-btn"
+          [class.active]="isSelectedSize(size)"
+          (click)="toggleSize(size)"
+        >
+          {{ size }}
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,120 @@
+.filters-title {
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+}
+
+.filter-group {
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  padding: 1rem 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.filter-group-title {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+  color: var(--color-text-strong);
+}
+
+.filter-option {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.95rem;
+  margin-bottom: 0.5rem;
+  cursor: pointer;
+  color: var(--color-text-subtle);
+}
+
+.filter-option input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  accent-color: var(--color-accent);
+}
+
+.size-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.size-btn {
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  background: none;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.size-btn:hover,
+.size-btn.active {
+  border-color: var(--color-accent);
+  background-color: var(--color-accent);
+  color: #fff;
+}
+
+/* Botón filtros móvil */
+.filters-toggle {
+  display: none;
+  align-items: center;
+  gap: 0.4rem;
+  background: none;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  padding: 0.45rem 0.9rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  color: var(--color-text-strong);
+
+  margin-top: 20px;
+}
+
+/* Acordeón por grupo en móvil */
+.filter-group-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+}
+
+.filter-group-header .ri-arrow-right-s-line,
+.filter-group-header .ri-arrow-down-s-line {
+  font-size: 1.1rem;
+  color: var(--color-text-subtle);
+  transition: transform 0.2s;
+}
+
+.filter-group-body {
+  overflow: hidden;
+  transition: max-height 0.3s ease, opacity 0.2s;
+}
+
+.filter-group-body.collapsed {
+  max-height: 0 !important;
+  opacity: 0;
+}
+
+@media (max-width: 768px) {
+  .filters-toggle {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    box-sizing: border-box;
+  }
+  .filters-panel { display: none; margin-top: 0.75rem; }
+  .filters-panel.open { display: block; }
+  .filters-title { display: none; }
+}
