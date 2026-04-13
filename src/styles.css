@@ -37,8 +37,15 @@ body {
 ================================= */
 
 :root {
-  --color-primary: #000000;
-  --color-secondary: #767272;
+  --color-text-primary: #1a1a1a;
+  --color-text-secondary: #767272;
+
+  --color-text-title: #222;        /* títulos principales */
+  --color-text-body: #666;         /* párrafos */
+  --color-text-muted: #555;        /* etiquetas pequeñas */
+  --color-text-subtle: #444;       /* listas o detalles */
+  --color-text-strong: #333;       /* líneas, acentos oscuros */
+
   --color-border: #cccccc;
   --color-accent: #3b82f6;
 }

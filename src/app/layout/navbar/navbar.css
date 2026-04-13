@@ -1,9 +1,11 @@
 .navbar {
+  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 40px;
+  padding: 20px 0px;
   background-color:white;
+  border-bottom: 1px solid var(--color-text-subtle);
 }
 
 .left {
@@ -12,7 +14,7 @@
 }
 
 .logo {
-  font-size: 22px;
+  font-size: 28px;
   font-weight: 700;
   letter-spacing: 0.5px;
   cursor: pointer;
@@ -47,17 +49,17 @@
 .links li {
   position: relative;
   cursor: pointer;
-  color: var(--color-secondary);
+  color: var(--color-text-secondary);
   transition: color 0.3s ease;
 }
 
 .links li::after {
   content: "";
   position: absolute;
-  bottom: -5px;
-  width: 80%;
+  bottom: -10px;
+  width: 50%;
   height: 2px;
-  background-color: var(--color-accent);
+  background-color: var(--color-text-subtle);
 
   left: 50%;
   transform: translateX(-50%) scaleX(0);
@@ -66,20 +68,16 @@
 }
 
 .links li:hover {
-  color: var(--color-primary);
+  color: var(--color-text-primary);
 }
 
-.links li:hover::after {
-  transform: translateX(-50%);
+.links li:hover::after,
+.links li.active::after {
+  transform: translateX(-50%) scaleX(1);
 }
 
 .links li.active {
-  color: var(--color-primary);
-}
-
-.links li.active::after {
-  transform: translateX(-50%);
-
+  color: var(--color-text-primary);
 }
 
 .right {
@@ -101,13 +99,13 @@
 
 .search input:focus {
   outline: none;
-  border: 1px solid var(--color-primary);
+  border: 1px solid var(--color-accent);
   box-shadow: 0 0 0 1px rgba(0,0,0,0.05);
 }
 
 .search input::placeholder,
 .search .icon {
-  color: var(--color-secondary);
+  color: var(--color-text-secondary);
 }
 
 .search .icon {
@@ -119,17 +117,73 @@
 }
 
 .search input:focus + .icon {
-  color: var(--color-primary);
+  color: var(--color-accent);
 }
 
 .icon2 {
   font-size: 20px;
-  color: var(--color-secondary);
+  color: var(--color-text-secondary);
   cursor: pointer;
   transition: transform 0.2s ease, color 0.2s ease;
 }
 
 .icon2:hover {
   transform: scale(1.08);
-  color: var(--color-primary);
+  color: var(--color-text-primary);
+}
+
+/* Burger */
+.burger {
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.burger-icon {
+  display: inline-block;
+  transition: all 0.25s ease;
+}
+
+.burger-icon.change {
+  transform: rotate(180deg) scale(1.3);
+  opacity: 0.6;
+}
+
+/* Menú mobile */
+.mobile-menu {
+  display: block;
+  width: 100%;
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  transition: max-height 0.32s ease, opacity 0.22s ease;
+}
+
+.mobile-menu.open {
+  max-height: 300px;
+  opacity: 1;
+}
+
+.mobile-links {
+  list-style: none;
+  padding: 10px 0 14px;
+}
+
+.mobile-links li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  padding: 13px 24px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--color-text-secondary);
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .burger { display: flex; }
+  .mobile-menu { display: block; }
+  .center { display: none; }
+  .search { display: none; }
 }

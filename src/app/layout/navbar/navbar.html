@@ -6,15 +6,13 @@
     </div>
   </div>
 
-  <!-- CENTRO -->
+  <!-- CENTRO (desktop) -->
   <div class="center">
     <ul class="links">
       <li routerLink="/shop" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
         TIENDA
       </li>
-
       <li routerLink="/collections" routerLinkActive="active">COLECCIONES</li>
-
       <li routerLink="/about" routerLinkActive="active">NOSOTROS</li>
     </ul>
   </div>
@@ -28,5 +26,23 @@
 
     <span class="icon2"><i class="ri-heart-line"></i></span>
     <span class="icon2"><i class="ri-shopping-cart-2-line"></i></span>
+
+    <!-- BURGER (solo mobile) -->
+    <div class="burger" (click)="toggleMenu()">
+      <i
+        class="burger-icon"
+        [class.change]="isMenuOpen"
+        [class]="isMenuOpen ? 'ri-close-line burger-icon change' : 'ri-menu-line burger-icon'"
+      ></i>
+    </div>
   </div>
 </nav>
+
+<!-- Menu Mobile -->
+<div class="mobile-menu" [class.open]="isMenuOpen">
+  <ul class="mobile-links">
+    <li routerLink="/shop" (click)="closeMenu()">TIENDA</li>
+    <li routerLink="/collections" (click)="closeMenu()">COLECCIONES</li>
+    <li routerLink="/about" (click)="closeMenu()">NOSOTROS</li>
+  </ul>
+</div>

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener, ElementRef } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
 @Component({
@@ -10,4 +10,25 @@ import { RouterModule } from '@angular/router';
 })
 export class Navbar {
 
+  isMenuOpen = false;
+
+  toggleMenu() {
+    this.isMenuOpen = !this.isMenuOpen;
+  }
+
+  closeMenu() {
+    this.isMenuOpen = false;
+  }
+
+  constructor(private elementRef: ElementRef) {}
+
+  @HostListener('document:click', ['$event'])
+  onClickOutside(event: Event) {
+    const clickedInside = this.elementRef.nativeElement.contains(event.target);
+
+    if (!clickedInside && this.isMenuOpen) {
+      this.closeMenu();
+    }
+  }
+  
 }
