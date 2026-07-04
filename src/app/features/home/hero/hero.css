@@ -3,7 +3,7 @@
     min-height: calc(100vh - 80px);
     display: flex;
     align-items: center;
-    background: url("/assets/images/Perfumes_Hero.png") center center / cover no-repeat;
+    background: url("/assets/images/Perfumes_Hero.webp") center center / cover no-repeat;
     overflow: hidden;
 }
 
