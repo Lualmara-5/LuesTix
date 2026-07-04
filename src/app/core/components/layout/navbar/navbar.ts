@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ScrollService } from '../../../services/scroll.service';
+import { NavigationService } from '../../../services/navigation.service';
 import { SectionObserverService } from '../../../services/section-observer.service';
 
 @Component({
@@ -12,11 +12,11 @@ import { SectionObserverService } from '../../../services/section-observer.servi
 export class Navbar {
 
   constructor(
-    private scrollService: ScrollService,
+    private navigationService: NavigationService,
     public sectionObserver: SectionObserverService
   ) {}
 
-  scrollToSection(section: string): void {
-    this.scrollService.scrollToSection(section);
+  navigateToSection(section: string): void {
+    this.navigationService.navigateToSection(section);
   }
 }

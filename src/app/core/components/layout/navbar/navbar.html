@@ -1,7 +1,7 @@
 <header class="navbar">
   <div class="container navbar-content">
     <!-- Logo -->
-    <a class="navbar-brand" (click)="scrollToSection('hero')">
+    <a class="navbar-brand" (click)="navigateToSection('hero')">
       <span class="brand-title"> LUESTIX </span>
 
       <span class="brand-subtitle"> PERFUMES </span>
@@ -12,7 +12,7 @@
       <a
         class="nav-link"
         [class.active]="sectionObserver.activeSection() === 'hero'"
-        (click)="scrollToSection('hero')"
+        (click)="navigateToSection('hero')"
       >
         Inicio</a
       >
@@ -20,7 +20,7 @@
       <a
         class="nav-link"
         [class.active]="sectionObserver.activeSection() === 'catalogo'"
-        (click)="scrollToSection('catalogo')"
+        (click)="navigateToSection('catalogo')"
       >
         Catálogo
       </a>
@@ -28,7 +28,7 @@
       <a
         class="nav-link"
         [class.active]="sectionObserver.activeSection() === 'how-to-buy'"
-        (click)="scrollToSection('how-to-buy')"
+        (click)="navigateToSection('how-to-buy')"
       >
         ¿Cómo comprar?
       </a>
@@ -36,7 +36,7 @@
       <a
         class="nav-link"
         [class.active]="sectionObserver.activeSection() === 'contacto'"
-        (click)="scrollToSection('contacto')"
+        (click)="navigateToSection('contacto')"
       >
         Contacto
       </a>
