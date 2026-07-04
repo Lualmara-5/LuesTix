@@ -45,11 +45,11 @@
 }
 
 .men{
-    background-image: url("/assets/images/Caballero.webp");
+    background-image: url("/assets/images/home/Caballero.webp");
 }
 
 .women{
-    background-image: url("/assets/images/Dama.webp");
+    background-image: url("/assets/images/home/Dama.webp");
 }
 
 .collection-card:hover{

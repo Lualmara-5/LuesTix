@@ -1,9 +1,11 @@
 import { Component } from '@angular/core';
+import { Banner } from '../../features/catalogo/banner/banner';
+import { Filters } from '../../features/catalogo/filters/filters';
 
 @Component({
   selector: 'app-catalogo',
   standalone: true,
-  imports: [],
+  imports: [Banner, Filters],
   templateUrl: './catalogo.html',
   styleUrl: './catalogo.css',
 })
