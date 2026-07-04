@@ -11,7 +11,7 @@
     <nav class="navbar-menu">
       <a
         class="nav-link"
-        [class.active]="activeSection === 'hero'"
+        [class.active]="sectionObserver.activeSection() === 'hero'"
         (click)="scrollToSection('hero')"
       >
         Inicio</a
@@ -19,7 +19,7 @@
 
       <a
         class="nav-link"
-        [class.active]="activeSection === 'catalogo'"
+        [class.active]="sectionObserver.activeSection() === 'catalogo'"
         (click)="scrollToSection('catalogo')"
       >
         Catálogo
@@ -27,7 +27,7 @@
 
       <a
         class="nav-link"
-        [class.active]="activeSection === 'how-to-buy'"
+        [class.active]="sectionObserver.activeSection() === 'how-to-buy'"
         (click)="scrollToSection('how-to-buy')"
       >
         ¿Cómo comprar?
@@ -35,7 +35,7 @@
 
       <a
         class="nav-link"
-        [class.active]="activeSection === 'contacto'"
+        [class.active]="sectionObserver.activeSection() === 'contacto'"
         (click)="scrollToSection('contacto')"
       >
         Contacto

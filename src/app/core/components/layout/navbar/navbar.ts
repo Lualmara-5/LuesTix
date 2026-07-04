@@ -1,44 +1,22 @@
-import { Component, AfterViewInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { ScrollService } from '../../../services/scroll.service';
+import { SectionObserverService } from '../../../services/section-observer.service';
 
 @Component({
   selector: 'app-navbar',
   standalone: true,
   imports: [],
   templateUrl: './navbar.html',
-  styleUrl: './navbar.css'
+  styleUrl: './navbar.css',
 })
-export class Navbar implements AfterViewInit {
-
-  activeSection = 'hero';
+export class Navbar {
 
   constructor(
-    private scrollService: ScrollService
-  ){}
+    private scrollService: ScrollService,
+    public sectionObserver: SectionObserverService
+  ) {}
 
   scrollToSection(section: string): void {
     this.scrollService.scrollToSection(section);
-  }
-
-  ngAfterViewInit(): void {
-
-    const sections = document.querySelectorAll("section[id], footer[id]");
-    const observer = new IntersectionObserver(
-
-      (entries)=>{
-        entries.forEach(entry=>{
-          if(entry.isIntersecting){
-            this.activeSection = entry.target.id;
-          }
-        });
-      },
-      {
-        threshold:0.4
-      }
-    );
-
-    sections.forEach(section=>{
-        observer.observe(section);
-    });
   }
 }
