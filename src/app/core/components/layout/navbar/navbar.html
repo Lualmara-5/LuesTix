@@ -1,0 +1,52 @@
+<header class="navbar">
+  <div class="container navbar-content">
+    <!-- Logo -->
+    <a class="navbar-brand" (click)="scrollTo('hero')">
+      <span class="brand-title"> LUESTIX </span>
+
+      <span class="brand-subtitle"> PERFUMES </span>
+    </a>
+
+    <!-- Navigation -->
+    <nav class="navbar-menu">
+      <a class="nav-link" [class.active]="activeSection === 'hero'" (click)="scrollTo('hero')">
+        Inicio</a
+      >
+
+      <a
+        class="nav-link"
+        [class.active]="activeSection === 'catalogo'"
+        (click)="scrollTo('catalogo')"
+      >
+        Catálogo
+      </a>
+
+      <a
+        class="nav-link"
+        [class.active]="activeSection === 'how-to-buy'"
+        (click)="scrollTo('how-to-buy')"
+      >
+        ¿Cómo comprar?
+      </a>
+
+      <a
+        class="nav-link"
+        [class.active]="activeSection === 'contacto'"
+        (click)="scrollTo('contacto')"
+      >
+        Contacto
+      </a>
+    </nav>
+
+    <!-- Actions -->
+    <div class="navbar-actions">
+      <button class="action-btn" aria-label="Carrito">
+        <i class="ri-shopping-cart-2-line"></i>
+      </button>
+
+      <button class="action-btn" aria-label="Mi cuenta">
+        <i class="ri-user-line"></i>
+      </button>
+    </div>
+  </div>
+</header>

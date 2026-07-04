@@ -1,0 +1,145 @@
+.collections{
+    padding: 5rem 0;
+    background: #FCF8F3;
+}
+
+.collections-container{
+    width:90%;
+    max-width:1300px;
+    margin:auto;
+}
+
+.section-subtitle{
+    display:block;
+    text-align:center;
+    color:var(--color-primary);
+    font-size:.9rem;
+    font-weight:600;
+    letter-spacing:2px;
+    margin-bottom:1rem;
+}
+
+.section-title{
+    text-align:center;
+    font-size:2.8rem;
+    margin-bottom:3rem;
+    color:var(--color-title);
+}
+
+.collections-grid{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 2rem;
+}
+
+.collection-card{
+    position: relative;
+    height: 420px;
+    border-radius: 20px;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end;
+    transition: 0.35s ease;
+    background-size: cover;
+    background-position: center;
+}
+
+.men{
+    background-image: url("/assets/images/Caballero.png");
+}
+
+.women{
+    background-image: url("/assets/images/Dama.png");
+}
+
+.collection-card:hover{
+    transform: translateY(-8px);
+}
+
+/* Overlay */
+.collection-card .overlay{
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        90deg,
+        rgba(0,0,0,.78) 0%,
+        rgba(0,0,0,.45) 45%,
+        rgba(0,0,0,.05) 100%
+    );
+}
+
+/* CONTENIDO */
+.collection-content{
+    position: relative;
+    z-index: 2;
+    padding: 2.5rem;
+    color: white;
+}
+
+.collection-content h3{
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.collection-content p{
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin-bottom: 2rem;
+}
+
+.collection-content button{
+    padding: 1rem 2rem;
+    border-radius: 10px;
+    border: 1px solid rgba(255,255,255,.5);
+    background: transparent;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.collection-content button:hover{
+    background: white;
+    color: #111;
+}
+
+@media (max-width:992px){
+
+    .collections-grid{
+        grid-template-columns: 1fr;
+    }
+
+    .collection-card{
+        height: 380px;
+    }
+}
+
+@media (max-width:768px){
+
+    .collections{
+        padding: 4rem 0;
+    }
+
+    .section-title{
+        font-size: 2rem;
+    }
+
+    .collection-card{
+        height: 320px;
+    }
+
+    .collection-content{
+        padding: 2rem;
+    }
+
+    .collection-content h3{
+        font-size: 2.3rem;
+    }
+
+    .collection-content p{
+        font-size: 1rem;
+    }
+
+    .collection-content button{
+        width: 100%;
+    }
+}
