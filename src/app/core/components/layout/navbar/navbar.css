@@ -25,6 +25,7 @@
     flex-direction: column;
     line-height: 1;
     cursor: pointer;
+    user-select:none;
 }
 
 .brand-title{

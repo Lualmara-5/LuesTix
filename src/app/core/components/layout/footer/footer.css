@@ -60,6 +60,12 @@
     color:var(--color-primary);
 }
 
+.footer-column.enlaces,
+.footer-column.categorias,
+.footer-links{
+    user-select:none;
+}
+
 .socials {
     display: flex;
     gap: 1rem;
