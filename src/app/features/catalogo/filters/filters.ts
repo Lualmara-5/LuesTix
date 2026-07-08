@@ -20,13 +20,39 @@ export class Filters {
 
   mostrarFiltros = false;
 
+  filtros = this.crearFiltrosIniciales();
+
+  private crearFiltrosIniciales() {
+    return {
+      categoria: {
+        hombre: false,
+        mujer: false,
+        unisex: false,
+        combo: false
+      },
+
+      marcas: {
+        jeanPaulGaultier: false,
+        giorgioArmani: false,
+        armaf: false,
+        dior: false,
+        creed: false
+      },
+
+      precio: {
+        minimo: this.PRECIO_MIN,
+        maximo: this.PRECIO_MAX
+      }
+    };
+  }
+
   toggleFiltros() {
-    if(window.innerWidth <= 768){
-        this.mostrarFiltros = !this.mostrarFiltros;
+    if (window.innerWidth <= 768) {
+      this.mostrarFiltros = !this.mostrarFiltros;
     }
   }
 
-  esMovil(): boolean{
+  esMovil(): boolean {
     return window.innerWidth <= 768;
   }
 
@@ -37,113 +63,70 @@ export class Filters {
 
   validarPrecio(tipo: 'minimo' | 'maximo'): void {
 
-  if (tipo === 'minimo') {
+    if (tipo === 'minimo') {
 
-    // Menor al mínimo permitido
-    if (this.filtros.precio.minimo < this.PRECIO_MIN) {
+      // Menor al mínimo permitido
+      if (this.filtros.precio.minimo < this.PRECIO_MIN) {
 
-      this.precioMinError = true;
-      this.filtros.precio.minimo = this.PRECIO_MIN;
+        this.precioMinError = true;
+        this.filtros.precio.minimo = this.PRECIO_MIN;
 
-      setTimeout(() => {
-        this.precioMinError = false;
-      }, 2000);
+        setTimeout(() => {
+          this.precioMinError = false;
+        }, 2000);
 
-      return;
+        return;
+      }
+
+      // Mayor que el máximo seleccionado
+      if (this.filtros.precio.minimo > this.filtros.precio.maximo) {
+
+        this.precioMinError = true;
+        this.filtros.precio.minimo = this.filtros.precio.maximo;
+
+        setTimeout(() => {
+          this.precioMinError = false;
+        }, 2000);
+
+        return;
+      }
     }
 
-    // Mayor que el máximo seleccionado
-    if (this.filtros.precio.minimo > this.filtros.precio.maximo) {
+    if (tipo === 'maximo') {
 
-      this.precioMinError = true;
-      this.filtros.precio.minimo = this.filtros.precio.maximo;
+      // Mayor al máximo permitido
+      if (this.filtros.precio.maximo > this.PRECIO_MAX) {
 
-      setTimeout(() => {
-        this.precioMinError = false;
-      }, 2000);
+        this.precioMaxError = true;
+        this.filtros.precio.maximo = this.PRECIO_MAX;
 
-      return;
+        setTimeout(() => {
+          this.precioMaxError = false;
+        }, 2000);
+
+        return;
+      }
+
+      // Menor que el mínimo seleccionado
+      if (this.filtros.precio.maximo < this.filtros.precio.minimo) {
+
+        this.precioMaxError = true;
+        this.filtros.precio.maximo = this.filtros.precio.minimo;
+
+        setTimeout(() => {
+          this.precioMaxError = false;
+        }, 2000);
+
+        return;
+      }
     }
-
   }
-
-  if (tipo === 'maximo') {
-
-    // Mayor al máximo permitido
-    if (this.filtros.precio.maximo > this.PRECIO_MAX) {
-
-      this.precioMaxError = true;
-      this.filtros.precio.maximo = this.PRECIO_MAX;
-
-      setTimeout(() => {
-        this.precioMaxError = false;
-      }, 2000);
-
-      return;
-    }
-
-    // Menor que el mínimo seleccionado
-    if (this.filtros.precio.maximo < this.filtros.precio.minimo) {
-
-      this.precioMaxError = true;
-      this.filtros.precio.maximo = this.filtros.precio.minimo;
-
-      setTimeout(() => {
-        this.precioMaxError = false;
-      }, 2000);
-
-      return;
-    }
-  }
-}
-
-  filtros = {
-    categoria: {
-      caballero: false,
-      dama: false,
-      unisex: false,
-      combos: false
-    },
-
-    marcas: {
-      marca1: false,
-      marca2: false,
-      marca3: false,
-      marca4: false,
-      marca5: false
-    },
-
-    precio: {
-      minimo: this.PRECIO_MIN,
-      maximo: this.PRECIO_MAX
-    }
-  };
 
   limpiarFiltros(): void {
 
     this.precioMinError = false;
     this.precioMaxError = false;
 
-    this.filtros = {
-      categoria: {
-        caballero: false,
-        dama: false,
-        unisex: false,
-        combos: false
-      },
-
-      marcas: {
-        marca1: false,
-        marca2: false,
-        marca3: false,
-        marca4: false,
-        marca5: false
-      },
-
-      precio: {
-        minimo: this.PRECIO_MIN,
-        maximo: this.PRECIO_MAX
-      }
-    };
+    this.filtros = this.crearFiltrosIniciales();
   }
 }
