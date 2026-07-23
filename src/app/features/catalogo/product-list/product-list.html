@@ -1,5 +1,5 @@
 <section class="product-list">
-  @for (producto of productos; track producto.id) {
-    <app-product-card [producto]="producto"> </app-product-card>
+  @for (producto of productosFiltrados; track producto.id) {
+    <app-product-card [producto]="producto"></app-product-card>
   }
 </section>

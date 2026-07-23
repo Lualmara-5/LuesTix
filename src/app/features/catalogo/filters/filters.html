@@ -5,7 +5,7 @@
       <span>Filtros</span>
     </div>
 
-    <i class="ri-arrow-down-s-line" [class.rotate]="mostrarFiltros"> </i>
+    <i class="ri-arrow-down-s-line" [class.rotate]="mostrarFiltros"></i>
   </div>
 
   <hr class="desktop-divider" />
@@ -18,22 +18,38 @@
       </div>
 
       <label>
-        <input type="checkbox" [(ngModel)]="filtros.categoria.hombre" />
+        <input
+          type="checkbox"
+          [checked]="filtros.categorias.includes('Hombre')"
+          (change)="toggleCategoria('Hombre')"
+        />
         Hombre
       </label>
 
       <label>
-        <input type="checkbox" [(ngModel)]="filtros.categoria.mujer" />
+        <input
+          type="checkbox"
+          [checked]="filtros.categorias.includes('Mujer')"
+          (change)="toggleCategoria('Mujer')"
+        />
         Mujer
       </label>
 
       <label>
-        <input type="checkbox" [(ngModel)]="filtros.categoria.unisex" />
+        <input
+          type="checkbox"
+          [checked]="filtros.categorias.includes('Unisex')"
+          (change)="toggleCategoria('Unisex')"
+        />
         Unisex
       </label>
 
       <label>
-        <input type="checkbox" [(ngModel)]="filtros.categoria.combo" />
+        <input
+          type="checkbox"
+          [checked]="filtros.categorias.includes('Combo')"
+          (change)="toggleCategoria('Combo')"
+        />
         Combo
       </label>
     </div>
@@ -41,34 +57,53 @@
     <hr />
 
     <!-- Marcas -->
-
     <div class="filter-group">
       <div class="filter-title">
         <span>Marcas</span>
       </div>
 
       <label>
-        <input type="checkbox" [(ngModel)]="filtros.marcas.jeanPaulGaultier" />
+        <input
+          type="checkbox"
+          [checked]="filtros.marcas.includes('Jean Paul Gaultier')"
+          (change)="toggleMarca('Jean Paul Gaultier')"
+        />
         Jean Paul Gaultier
       </label>
 
       <label>
-        <input type="checkbox" [(ngModel)]="filtros.marcas.giorgioArmani" />
+        <input
+          type="checkbox"
+          [checked]="filtros.marcas.includes('Giorgio Armani')"
+          (change)="toggleMarca('Giorgio Armani')"
+        />
         Giorgio Armani
       </label>
 
       <label>
-        <input type="checkbox" [(ngModel)]="filtros.marcas.armaf" />
+        <input
+          type="checkbox"
+          [checked]="filtros.marcas.includes('Armaf')"
+          (change)="toggleMarca('Armaf')"
+        />
         Armaf
       </label>
 
       <label>
-        <input type="checkbox" [(ngModel)]="filtros.marcas.dior" />
+        <input
+          type="checkbox"
+          [checked]="filtros.marcas.includes('Dior')"
+          (change)="toggleMarca('Dior')"
+        />
         Dior
       </label>
 
       <label>
-        <input type="checkbox" [(ngModel)]="filtros.marcas.creed" />
+        <input
+          type="checkbox"
+          [checked]="filtros.marcas.includes('Creed')"
+          (change)="toggleMarca('Creed')"
+        />
         Creed
       </label>
     </div>
@@ -76,7 +111,6 @@
     <hr />
 
     <!-- Precio -->
-
     <div class="filter-group">
       <h3>Rango de precio</h3>
 

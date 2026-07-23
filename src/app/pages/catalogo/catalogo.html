@@ -1,10 +1,11 @@
 <app-banner></app-banner>
 
 <div class="catalog-layout">
-  <app-filters></app-filters>
+  <app-filters (filtrosChange)="filtros = $event"> </app-filters>
 
   <main class="catalog-content">
     <app-toolbar></app-toolbar>
-    <app-product-list></app-product-list>
+
+    <app-product-list [filtros]="filtros"> </app-product-list>
   </main>
 </div>

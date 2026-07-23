@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { CurrencyInputDirective } from '../../../shared/directives/currency-input.directive';
+import { Filtros } from '../../../models/filtros.interface';
 
 @Component({
   selector: 'app-filters',
@@ -10,6 +11,7 @@ import { CurrencyInputDirective } from '../../../shared/directives/currency-inpu
   templateUrl: './filters.html',
   styleUrl: './filters.css',
 })
+
 export class Filters {
 
   readonly PRECIO_MIN = 75000;
@@ -20,30 +22,53 @@ export class Filters {
 
   mostrarFiltros = false;
 
-  filtros = this.crearFiltrosIniciales();
+  @Output() filtrosChange = new EventEmitter<Filtros>();
 
-  private crearFiltrosIniciales() {
+  filtros: Filtros = this.crearFiltrosIniciales();
+
+  private crearFiltrosIniciales(): Filtros {
     return {
-      categoria: {
-        hombre: false,
-        mujer: false,
-        unisex: false,
-        combo: false
-      },
-
-      marcas: {
-        jeanPaulGaultier: false,
-        giorgioArmani: false,
-        armaf: false,
-        dior: false,
-        creed: false
-      },
-
+      categorias: [],
+      marcas: [],
       precio: {
         minimo: this.PRECIO_MIN,
         maximo: this.PRECIO_MAX
       }
     };
+  }
+
+  /* Saber si agregamos o quitamos filtros. */
+  toggleCategoria(categoria: string): void {
+
+    const categorias = this.filtros.categorias.includes(categoria)
+      ? this.filtros.categorias.filter(c => c !== categoria)
+      : [...this.filtros.categorias, categoria];
+
+    this.filtros = {
+      ...this.filtros,
+      categorias
+    };
+
+    this.emitirFiltros();
+  }
+
+  toggleMarca(marca: string): void {
+
+    const marcas = this.filtros.marcas.includes(marca)
+      ? this.filtros.marcas.filter(m => m !== marca)
+      : [...this.filtros.marcas, marca];
+
+    this.filtros = {
+      ...this.filtros,
+      marcas
+    };
+
+    this.emitirFiltros();
+  }
+  /* --- */
+
+  emitirFiltros(): void {
+    this.filtrosChange.emit(this.filtros);
   }
 
   toggleFiltros() {
@@ -65,7 +90,6 @@ export class Filters {
 
     if (tipo === 'minimo') {
 
-      // Menor al mínimo permitido
       if (this.filtros.precio.minimo < this.PRECIO_MIN) {
 
         this.precioMinError = true;
@@ -78,7 +102,6 @@ export class Filters {
         return;
       }
 
-      // Mayor que el máximo seleccionado
       if (this.filtros.precio.minimo > this.filtros.precio.maximo) {
 
         this.precioMinError = true;
@@ -94,7 +117,6 @@ export class Filters {
 
     if (tipo === 'maximo') {
 
-      // Mayor al máximo permitido
       if (this.filtros.precio.maximo > this.PRECIO_MAX) {
 
         this.precioMaxError = true;
@@ -107,7 +129,6 @@ export class Filters {
         return;
       }
 
-      // Menor que el mínimo seleccionado
       if (this.filtros.precio.maximo < this.filtros.precio.minimo) {
 
         this.precioMaxError = true;
@@ -120,6 +141,8 @@ export class Filters {
         return;
       }
     }
+
+    this.emitirFiltros();
   }
 
   limpiarFiltros(): void {
@@ -128,5 +151,7 @@ export class Filters {
     this.precioMaxError = false;
 
     this.filtros = this.crearFiltrosIniciales();
+
+    this.emitirFiltros();
   }
 }

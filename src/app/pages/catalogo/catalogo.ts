@@ -1,8 +1,11 @@
 import { Component } from '@angular/core';
+
 import { Banner } from '../../features/catalogo/banner/banner';
 import { Filters } from '../../features/catalogo/filters/filters';
 import { Toolbar } from '../../features/catalogo/toolbar/toolbar';
-import { ProductList } from '../../features/catalogo/product-list/product-list'; 
+import { ProductList } from '../../features/catalogo/product-list/product-list';
+
+import { Filtros } from '../../models/filtros.interface';
 
 @Component({
   selector: 'app-catalogo',
@@ -13,4 +16,6 @@ import { ProductList } from '../../features/catalogo/product-list/product-list';
 })
 export class Catalogo {
 
+  filtros: Filtros | null = null;
+  
 }
